@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "174018964568",
+    "project_id": "kartik-reddit-clone",
+    "storage_bucket": "kartik-reddit-clone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174018964568:android:326f0ab6aa924512d4ee2d",
+        "android_client_info": {
+          "package_name": "com.example.kartikRedditClone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_yYkUSsUNVlIF0kldyzIunQ5R8dYifng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
