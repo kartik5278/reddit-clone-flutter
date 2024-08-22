@@ -45,6 +45,8 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Explain why your app uses photo library</string>
 	<!-- Google Sign-in Section -->
 		<key>CFBundleURLTypes</key>
 		<array>

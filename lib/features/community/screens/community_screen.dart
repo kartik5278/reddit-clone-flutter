@@ -5,6 +5,7 @@ import 'package:reddit_clone/core/common/error_text.dart';
 import 'package:reddit_clone/core/common/loader.dart';
 import 'package:reddit_clone/features/auth/controller/auth_controller.dart';
 import 'package:reddit_clone/features/community/controller/community_controller.dart';
+import 'package:routemaster/routemaster.dart';
 
 class CommunityScreen extends ConsumerWidget {
   final String name;
@@ -12,6 +13,10 @@ class CommunityScreen extends ConsumerWidget {
     super.key,
     required this.name,
   });
+
+  void navigateToModTools(BuildContext context, String communityName) {
+    Routemaster.of(context).push("/mod-tools/$communityName");
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,13 +32,15 @@ class CommunityScreen extends ConsumerWidget {
                   expandedHeight: 150,
                   floating: true,
                   snap: true,
+                  pinned: true,
                   flexibleSpace: Stack(
                     children: [
                       Positioned.fill(
-                          child: Image.network(
-                        community.banner,
-                        fit: BoxFit.cover,
-                      ))
+                        child: Image.network(
+                          community.banner,
+                          fit: BoxFit.cover,
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -61,7 +68,9 @@ class CommunityScreen extends ConsumerWidget {
                           ),
                           community.mods.contains(user!.uid)
                               ? OutlinedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    navigateToModTools(context, community.name);
+                                  },
                                   style: ElevatedButton.styleFrom(
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(20),
