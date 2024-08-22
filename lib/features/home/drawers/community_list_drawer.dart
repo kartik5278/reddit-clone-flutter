@@ -37,6 +37,9 @@ class CommunityList extends ConsumerWidget {
                         backgroundImage: NetworkImage(community.avatar),
                       ),
                       title: Text("r/${community.name}"),
+                      onTap: () {
+                        Routemaster.of(context).push("r/${community.name}");
+                      },
                     );
                   },
                 ),

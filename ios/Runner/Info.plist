@@ -55,10 +55,12 @@
 				<array>
 					<!-- TODO Replace this value: -->
 					<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
-					<string>com.googleusercontent.apps.174018964568-c178530ecbd32fe0d4ee2d</string>
+					<string>com.googleusercontent.apps.174018964568-kivbsl80kgjb4847na75v6t2n5f1pb2m</string>
 				</array>
 			</dict>
 		</array>
 		<!-- End of the Google Sign-in Section -->
+		<key>GIDClientID</key>
+		<string>174018964568-kivbsl80kgjb4847na75v6t2n5f1pb2m.apps.googleusercontent.com</string>
 </dict>
 </plist>
