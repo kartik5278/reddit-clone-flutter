@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fpdart/fpdart.dart';
+import 'package:reddit_clone/core/AppFailure.dart';
 import 'package:reddit_clone/core/constants/constants.dart';
 import 'package:reddit_clone/core/providers/storage_repository_provider.dart';
 import 'package:reddit_clone/core/utils.dart';
@@ -133,11 +135,26 @@ class CommunityController extends StateNotifier<bool> {
 
   void joinCommunity(CommunityModel community, BuildContext context) async {
     final user = _ref.read(userProvider)!.uid;
+    Either<Appfailure, void> res;
+
     if (community.members.contains(user)) {
-      await _communityRepository.leaveCommunity(community.name, user);
+      res = await _communityRepository.leaveCommunity(community.name, user);
       // showSnackbar(context, "")
     } else {
-      await _communityRepository.joinCommunity(community.name, user);
+      res = await _communityRepository.joinCommunity(community.name, user);
     }
+
+    res.fold(
+      (l) {
+        return showSnackbar(context, l.message);
+      },
+      (r) {
+        if (community.members.contains(user)) {
+          return showSnackbar(context, "Community left successfully");
+        } else {
+          return showSnackbar(context, "Community joined successfully");
+        }
+      },
+    );
   }
 }

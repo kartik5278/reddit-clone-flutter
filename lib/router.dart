@@ -1,6 +1,7 @@
 // loggedout routes
 import 'package:flutter/material.dart';
 import 'package:reddit_clone/features/auth/screen/login_screen.dart';
+import 'package:reddit_clone/features/community/screens/add_mods_screen.dart';
 import 'package:reddit_clone/features/community/screens/community_screen.dart';
 import 'package:reddit_clone/features/community/screens/create_community_screen.dart';
 import 'package:reddit_clone/features/community/screens/edit_community_screen.dart';
@@ -31,6 +32,11 @@ final loggedinRoute = RouteMap(
         ),
     "/edit-community/:name": (route) => MaterialPage(
           child: EditCommunityScreen(
+            name: route.pathParameters['name']!,
+          ),
+        ),
+    "/add-mods/:name": (route) => MaterialPage(
+          child: AddModsScreen(
             name: route.pathParameters['name']!,
           ),
         ),
